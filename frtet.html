@@ -1,0 +1,732 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Аналитика ассессмента</title>
+<link rel="icon" type="image/x-icon" href="images/vector-4-431.svg">
+<style>
+body, h1, h2, p, ul, li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+body {
+  margin: 0; 
+  min-height: 100vh; 
+  position: relative;
+}
+
+.header {
+  background-color: #363636; 
+  color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 20px 40px;
+  font-family: sans-serif; 
+  border-radius: 15px; 
+  position: relative; 
+}
+
+.text-15 {
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+  font-family: var(--font-family-gilroy);
+  font-weight: 700;
+  font-size: 24px;
+  text-decoration: none;
+  text-transform: none;
+  color: var(--text-rgb-70-73-81);
+}
+
+.yellow-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 20px; 
+  background-color: #abf15a;
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.4); 
+}
+
+@font-face {
+  font-family: 'Gilroy';
+  src: url('fonts/gilroy.woff2') format('woff2'),
+       url('fonts/gilroy.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Proxima Nova';
+  src: url('fonts/proxima-nova.woff2') format('woff2'),
+       url('fonts/proxima-nova.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root {
+  --font-family-gilroy: 'Gilroy', sans-serif;
+  --font-family-proxima-nova: 'Proxima Nova', sans-serif;
+  --text-rgb-70-73-81: rgba(70, 73, 81, 1);
+  --text-rgb-51-51-51: rgba(51, 51, 51, 1);
+  --text-rgb-89-88-229: rgba(89, 88, 229, 1);
+  --text-rgb-205-254-105: rgba(205, 254, 105, 1);
+  --text-white: rgba(255, 255, 255, 1);
+  --text-rgb-25-30-40: rgba(25, 30, 40, 1);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.year-select-container {
+            text-align: center;
+            margin-top: 50px;
+}
+
+.year-select {
+    padding: 10px 20px; 
+    border-radius: 5px; 
+    border: none; 
+    font-family: var(--font-family-gilroy); 
+    font-size: 16px; 
+    color: var(--text-rgb-70-73-81); 
+    background-color: white;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3); 
+    width: 350px;
+    height: 70px; 
+}
+
+.text-23 {
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-basis: auto;
+    text-shadow: 1px -4px 2px rgba(57, 190, 30, 0.4);
+    font-family: var(--font-family-gilroy);
+    font-weight: 700;
+    font-size: 120px;
+    line-height: 135%;
+    text-decoration: none;
+    text-transform: none;
+    color: var(--text-rgb-205-254-105);
+    margin-top: 20px;
+    margin-bottom: 0;
+    text-align: center;
+}
+
+.text-437 {
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: auto;
+  font-family: var(--font-family-gilroy);
+  font-weight: 700;
+  font-size: 38px;
+  line-height: 135.0000023841858%;
+  text-decoration: none;
+  text-transform: none;
+  color: var(--text-rgb-70-73-81);
+}
+
+.text-22 {
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+  text-shadow: 0px 4px 4px 0px rgba(0,0,0,0.5);
+  font-family: var(--font-family-gilroy);
+  font-weight: 700;
+  font-size: 90px;
+  line-height: 135.0000023841858%;
+  text-decoration: none;
+  text-transform: none;
+  color: var(--text-rgb-89-88-229);
+  margin-top: 100px; 
+  text-align: center;
+}
+
+.text-432 {
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+  font-family: var(--font-family-gilroy);
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 135.0000023841858%;
+  text-decoration: none;
+  text-transform: none;
+  color: var(--text-white);
+  color: white; 
+    font-size: 24px; 
+    margin: 50px 25px; 
+}
+
+.text-24 {
+    position: absolute;
+    top: 20px; 
+    right: 520px;
+    margin-top: 120px;
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-basis: auto;
+    font-family: var(--font-family-gilroy);
+    font-weight: 300;
+    font-size: 42px;
+    line-height: 135%;
+    text-decoration: none;
+    text-transform: none;
+    color: var(--text-rgb-70-73-81); 
+}
+
+.logo img {
+  width: 50px; 
+  height: auto;
+  margin-right: 10px;
+}
+
+.university-text {
+  font-size: 20px; 
+  line-height: 1.2;
+}
+
+.title {
+  font-size: 44px; 
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  flex-grow: 1; 
+}
+
+.title .gray-text {
+  margin-left: 110px; 
+  font-size: 36px; 
+  color: rgb(123, 123, 123); 
+}
+
+.digital-dept {
+  font-size: 18px;
+  text-align: right;
+  line-height: 1.2;
+}
+
+.stats-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: flex-start;
+    margin-top: 120px;
+}
+
+.stat-card {
+    background-color: white;
+    border-radius: 25px;
+    padding: 40px;
+    width: 500px;
+    margin-bottom: 20px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+
+    display: flex;              
+    flex-direction: row;      
+    align-items: center;       
+    text-align: left;
+}
+
+.stat-card img {
+    width: 100px;
+    height: auto;
+    margin-right: 10px;            
+}
+
+.stat-card .text-content {
+    display: flex;
+    flex-direction: column;  
+    align-items: flex-start;   
+}
+
+.stat-card .title {
+    font-family: var(--font-family-gilroy);
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--text-rgb-70-73-81);
+    margin-bottom: 5px;
+    text-shadow: none; 
+}
+
+.stat-card .value {
+    font-family: var(--font-family-gilroy);
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--text-rgb-89-88-229);
+}
+
+@media (max-width: 768px) {
+    .stat-card {
+        width: 100%;
+        flex-direction: column; 
+        align-items: flex-start; 
+    }
+
+    .stat-card img {
+        margin-bottom: 10px; 
+        margin-right: 0; 
+    }
+}
+
+.panel-container {
+            width: 98%;
+            max-width: 98%;
+            margin: 0 auto;
+            margin-top: 50px;
+        }
+
+        .panel-header {
+            background-color: #ffffff; 
+            color: #333;
+            width: 100%;
+            height: 130px;
+            padding: 15px;
+            border: none;
+            text-align: left;
+            cursor: pointer;
+            outline: none;
+            font-size: 16px;
+            border-radius: 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: 
+                background-color 0.2s ease,
+                border-radius 0.3s ease;
+        }
+
+        .panel-header:hover {
+            background-color: #e0e0e0;
+        }
+
+        .panel-header .arrow {
+            font-size: 1.2em;
+            transition: transform 0.3s ease;
+            display: inline-block;
+        }
+
+        .panel-content {
+            background-color: #ffffff;
+            padding: 20px 15px;
+            border: none;
+            margin-top: 0;
+            border-radius: 0;
+            overflow: hidden;
+            max-height: 0;
+            transition: 
+                max-height 0.4s ease-in-out,
+                opacity 0.3s ease 0.1s,
+                padding 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+        }
+
+.panel-header.active + .panel-content {
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    border-radius: 0 0 25px 25px;
+    opacity: 1;
+    visibility: visible;
+    max-height: 1000px;
+    margin-bottom: 20px;
+}
+        .panel-header.active {
+            background-color: white; 
+            border-radius: 25px 25px 0 0;
+            border: 1px solid #ddd; 
+            border-bottom: none; 
+        }
+
+        .panel-header.active .arrow {
+            transform: rotate(180deg);
+        }
+
+        .white-section {
+  position: relative; 
+  background-color: rgb(244, 244, 244);
+  padding: 20px;
+  padding-bottom: 550px; 
+  height: auto; 
+  background-image: 
+    url('images/3-7.svg'), 
+    url('images/2-8.svg'); 
+  background-size: 
+    45%, 
+    140%; 
+  background-position: 
+    900px -100px, 
+    -1200px -130px; 
+  background-repeat: no-repeat;
+}
+
+.text-287 {
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+  font-family: var(--font-family-gilroy);
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 135.0000023841858%;
+  text-decoration: none;
+  text-transform: none;
+  color: var(--text-white);
+}
+
+.icon-buttons {
+    display: flex;        
+    justify-content: flex-start;
+    align-items: center;      
+}
+
+.social-button {
+    background-color: rgb(0, 0, 0);
+    border-radius: 50%;      
+    display: inline-flex;     
+    align-items: center;
+    justify-content: center;  
+    width: 40px;             
+    height: 40px;             
+    margin: 0 20px;          
+    transition: background-color 0.3s ease;
+    text-decoration: none;   
+    position: relative; 
+    top: -120px;
+    left: 800px; 
+}
+
+.social-button img {
+    width: 50px;            
+    height: 50px;            
+    transition: opacity 0.3s ease; 
+}
+
+.social-button:hover img {
+    filter: brightness(0) saturate(100%) invert(76%) sepia(100%) saturate(2338%) hue-rotate(1deg) brightness(94%) contrast(101%); /* Оранжевый цвет */
+}
+
+.text-gray {
+    color: rgb(160, 158, 158);
+}
+
+.team-listing {
+    font-family: var(--font-family-gilroy);
+    position: relative; 
+    margin: 300px 0;
+    transform: translateX(-550px);
+}
+
+.team-listing .project-manager {
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+  font-family: var(--font-family-gilroy);
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 135.0000023841858%;
+  text-decoration: none;
+  text-transform: none;
+  color: var(--text-white);
+    text-align: center;  
+    margin-bottom: 15px;
+}
+
+.team-grid {
+    display: flex;     
+    width: 100%;      
+}
+
+.team-grid .team-column {
+    width: 50%;       
+    text-align: left;   
+}
+
+.team-grid p {
+  margin: 5px 0;        
+  font-size: 14px;
+}
+
+.text_ck {
+    width: 100px;
+    height: 50px;
+    flex-grow: 0;
+    flex-shrink: 1; 
+    font-family: var(--font-family-gilroy); 
+    font-weight: 700; 
+    font-size: 24px; 
+    line-height: 135%; 
+    text-decoration: none; 
+    text-transform: none; 
+    color: white;
+    transition: color 0.3s ease; 
+    white-space: nowrap;
+    text-align: right; 
+    transform: translate( 500px, 50px); 
+}
+.text_ck:hover {
+    color: #d1a600;
+}
+
+.down_logo {
+  display: inline-block; 
+  margin-right: 20px; 
+  margin-top: 40px;
+  margin-left: 40px;
+}
+
+.down_logo img {
+  width: 70px;       
+  height: auto;          
+}
+
+.down_logo.small {
+    width: 100px;
+}
+.down_logo.bordered {
+    border: 2px solid blue;
+    border-radius: 10px;
+}
+
+.down_logo img.grayscale {
+    filter: grayscale(100%);
+}
+
+.black-box {
+    background-color: #262626; 
+    height: 500px; 
+    width: 100%; 
+    border-radius: 15px 15px 0 0; 
+    position: absolute; 
+    bottom: 0; 
+    left: 0; 
+    z-index: 10;
+    display: flex; 
+    padding: 20px;
+}
+
+.left-text {
+    text-align: left;
+}
+
+.right-text {
+    text-align: right; 
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    text-align: center;
+  }
+  .logo, .digital-dept {
+    margin-bottom: 10px;
+  }
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="logo">
+    <img src="images/vector-4-431.svg" alt="University Logo">
+    <div class="university-text">
+      Университет<br>Лобачевского
+    </div>
+  </div>
+
+  <h1 class="title"><span class="gray-text">Аналитика ассессмента</span></h1>
+
+  <div class="digital-dept">
+    Цифровая кафедра Университета<br>Лобачевского
+  </div>
+  <div class="yellow-bar"></div>
+</header>
+
+<div class="white-section">
+    <p class="text-23"><span class="text-rgb-205-254-105">АССЕССМЕНТ </span></p>
+    <p class="text-24"><span class="text-rgb-70-73-81">ЦИФРОВЫЕ КАФЕДРЫ</span></p>
+
+    <div class="year-select-container">
+        <select class="year-select">
+            <option>Год проведения </option>
+            <option>2024/2025</option>
+            <option>2023/2024</option>
+        </select>
+    </div>
+
+    <div class="stats-container">
+        <div class="stat-card">
+            <img src="images/Screenshot_512.png" alt="Number of Participants">
+            <h2 class="title">Число участников</h2>
+            <p class="value">1208</p>
+        </div>
+    
+        <div class="stat-card">
+            <img src="images/Screenshot_513.png" alt="Number of Target Ratings">
+            <h2 class="title">Число набравших <br>целевой балл</h2>
+            <p class="value">1100</p>
+        </div>
+    
+        <div class="stat-card">
+            <img src="images/Screenshot_514.png" alt="Average Rating">
+            <h2 class="title">Средний балл</h2>
+            <p class="value">0.78</p>
+        </div>
+    
+        <div class="stat-card">
+            <img src="images/Screenshot_515.png" alt="Average Time">
+            <h2 class="title">Среднее время</h2>
+            <p class="value">120 минут</p>
+        </div>
+    </div>
+
+    <p class="text-22"><span class="text-rgb-89-88-229">ОСНОВНАЯ АНАЛИТИКА</span></p>
+
+    <div class="panel-container">
+        <button class="panel-header">
+          <p class="text-437"><span class="text-rgb-70-73-81">Общая статистика ассессмента</span></p>
+            <span class="arrow">▲</span>
+        </button>
+        <div class="panel-content">
+            <!-- --------------------------------------------- -->
+            <img src="images/Screenshot_512.png" alt="Number of Participants">
+            <h2>Статистика завершения обучения</h2>
+            <p>Здесь будет общая статистика ассессмента. Подробные данные и графики.</p>
+        </div>
+
+        <button class="panel-header">
+          <p class="text-437"><span class="text-rgb-70-73-81">Уровень компетенций на этапах ассессмента</span></p>
+          <span class="arrow">▲</span>
+      </button>
+      <div class="panel-content">
+          <!-- ----------------------------------------------- -->
+          <img src="images/Screenshot_512.png" alt="Number of Participants">
+          <h2>Статистика завершения обучения</h2>
+          <p>Здесь будет общая статистика ассессмента. Подробные данные и графики.</p>
+      </div>
+
+      <button class="panel-header">
+        <p class="text-437"><span class="text-rgb-70-73-81">Средние значения</span></p>
+        <span class="arrow">▲</span>
+    </button>
+    <div class="panel-content">
+        <!-- ---------------------------------------------------- -->
+        <img src="images/Screenshot_512.png" alt="Number of Participants">
+        <h2>Статистика завершения обучения</h2>
+        <p>Здесь будет общая статистика ассессмента. Подробные данные и графики.</p>
+    </div>
+
+    <button class="panel-header">
+      <p class="text-437"><span class="text-rgb-70-73-81">Влияние времени на результаты ассессмента</span></p>
+      <span class="arrow">▲</span>
+  </button>
+  <div class="panel-content">
+      <!-- ---------------------------------------------------- -->
+      <img src="images/Screenshot_512.png" alt="Number of Participants">
+      <h2>Статистика завершения обучения</h2>
+      <p>Здесь будет общая статистика ассессмента. Подробные данные и графики.</p>
+  </div>
+
+      
+    </div>
+
+    <script>
+      const panelHeaders = document.querySelectorAll(".panel-header");
+      const whiteSection = document.querySelector('.white-section'); // Получаем ссылку на секцию
+      
+      panelHeaders.forEach(header => {
+          header.addEventListener('click', function() {
+              this.classList.toggle('active');
+              const content = this.nextElementSibling;
+      
+              if (this.classList.contains('active')) {
+                  // Открываем панель
+                  content.style.maxHeight = content.scrollHeight + "px";  // Устанавливаем максимальную высоту
+                  content.style.opacity = '1';
+                  content.style.visibility = 'visible';
+      
+                  // Увеличиваем высоту секции
+                  whiteSection.style.maxHeight = (whiteSection.scrollHeight + content.scrollHeight) + "px";
+              } else {
+                  // Закрываем панель
+                  const contentHeight = content.scrollHeight;
+                  content.style.maxHeight = '0';
+                  content.style.opacity = '0';
+      
+                  // Уменьшаем высоту секции
+                  whiteSection.style.maxHeight = (whiteSection.scrollHeight - contentHeight) + "px";
+      
+                  // Задержка для поля видимости
+                  setTimeout(() => {
+                      content.style.visibility = 'hidden';
+                  }, 300);
+              }
+          });
+      });
+      </script>
+<div class="black-box">
+  <div class="down_logo">
+    <img src="images/vector-4-281.svg" alt="Un Logo">
+  </div>
+  <p class="text-432">
+    <span class="text-rgb-70-73-81">Университет</span><br>
+    <span class="text-rgb-70-73-81">Лобачевского</span>
+  </p>
+    <a href="https://digital-chairs.unn.ru/" class="text_ck" target="_blank">Цифровая кафедра Университета Лобачевского</a>\
+    <div class="icon-buttons">
+      <a href="https://t.me/digital_chairs_unn" class="social-button">
+        <img src="images/vector-296.svg" alt="VK">
+      </a>
+      <a href="https://vk.com/digital_chairs_unn" class="social-button">
+        <img src="images/vector-298.svg" alt="Telegram">
+      </a>
+    </div>
+
+    <div class="team-listing">
+      <p class="project-manager">
+          <span class="text-white">Продукт менеджер: </span>
+          <span class="text-gray">Редькина Алина</span>
+      </p>
+      <div class="team-grid">
+          <div class="team-column">
+              <p class="text-287">
+                  <span class="text-white">Аналитики данных: </span>
+                  <span class="text-gray">Маковеева Софья, Ароян Мери, Тихомирова Диана</span>
+              </p>
+              <p class="text-287">
+                  <span class="text-white">Веб-дизайнеры: </span>
+                  <span class="text-gray">Соснина Александра, Петрик Софья, Кашина Галина</span>
+              </p>
+              <p class="text-287">
+                  <span class="text-white">Фронтенд: </span>
+                  <span class="text-gray">Чернов Тимур, Журин Иван</span>
+              </p>
+          </div>
+          <div class="team-column">
+              <p class="text-287">
+                  <span class="text-white">Тестировщик: </span>
+                  <span class="text-gray">Галинская Екатерина</span>
+              </p>
+              <p class="text-287">
+                  <span class="text-white">Бэкенд: </span>
+                  <span class="text-gray">Голованов Даниил, Шилин Никита</span>
+              </p>
+              <p class="text-287">
+                  <span class="text-white">Бизнес-аналитики: </span>
+                  <span class="text-gray">Табалаев Антон, Куликов Денис</span>
+              </p>
+          </div>
+      </div>
+  </div>
+
+</div>
+</div>
+
+</body>
+</html>
